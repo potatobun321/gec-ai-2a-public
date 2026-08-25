@@ -1,0 +1,20 @@
+version: "1.0"
+
+node:
+  id: "gec-ai-2a-public"
+  name: "GEC Jaipur AI 2A Public Commons"
+  type: "public_sender"
+  repo: "GEC-Jaipur/AI-2A-public"
+
+capabilities:
+  - transmit_records
+  - query_status
+
+target_peer:
+  id: "gec-jaipur-private-storage"
+  endpoint: "http://localhost:3000/api/node-b/receive"
+
+protocols:
+  supported:
+    - name: "gitnode-transmission-v1"
+      schema: "schemas/message-v1.schema.json"
