@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GitNodeTransmissionV1",
+  "type": "object",
+  "required": ["protocol", "sender_node", "target_node", "payload_id", "timestamp", "data"],
+  "additionalProperties": false,
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "gitnode-transmission-v1"
+    },
+    "sender_node": {
+      "type": "string",
+      "minLength": 3
+    },
+    "target_node": {
+      "type": "string",
+      "minLength": 3
+    },
+    "payload_id": {
+      "type": "string",
+      "minLength": 5
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "data": {
+      "type": "object",
+      "required": ["type", "records"],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "records": {
+          "type": "array"
+        }
+      }
+    }
+  }
+}
