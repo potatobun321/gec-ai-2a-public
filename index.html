@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitNode — Network Console & RBAC Gateway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="topnav">
+    <div class="brand">
+      <span class="dot-mark"></span>
+      <span class="brand-name">GitNode Console</span>
+    </div>
+    
+    <div class="network-badge">
+      <span class="pulse-dot"></span>
+      <span>Target Repo: <b>potatobun321/gec-ai-2a-private</b></span>
+    </div>
+
+    <!-- Active User & Role Selector -->
+    <div class="role-selector-wrap">
+      <label for="roleSelect">Active User Context:</label>
+      <select id="roleSelect">
+        <option value="FAC-017|TEACHER">Prof. R. Sharma (TEACHER - Authorized)</option>
+        <option value="STU-101|STUDENT">Rahul Sharma (STUDENT - Rejection Test)</option>
+        <option value="CR-001|CLASS_MAINTAINER">Ananya Roy (CR - Maintainer)</option>
+        <option value="ADMIN-01|ADMIN">Dean Office (ADMIN - Authorized)</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="wrap">
+    
+    <!-- Hero Header -->
+    <div class="hero-bar">
+      <h1>Federated Git Network Console</h1>
+      <p class="lede">Construct schema-validated JSON records, verify RBAC authority from private repository configurations, and issue live commits to the GitHub network.</p>
+    </div>
+
+    <!-- 2-Column Interface -->
+    <div class="console-grid">
+
+      <!-- Left Column: Payload Form Sandbox -->
+      <section class="card form-card">
+        <div class="card-head">
+          <h3>01 — Construct Payload</h3>
+          <span class="tag-badge">Schema: message-v1</span>
+        </div>
+
+        <form id="payloadForm">
+          <div class="form-row">
+            <div class="field">
+              <label>Protocol String</label>
+              <input type="text" id="protocolInput" value="gitnode-transmission-v1" readonly>
+            </div>
+            <div class="field">
+              <label>Target Node ID</label>
+              <input type="text" id="targetNodeInput" value="gec-jaipur-private-storage" readonly>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Class Node ID</label>
+              <input type="text" id="classIdInput" value="AI-2A">
+            </div>
+            <div class="field">
+              <label>Subject</label>
+              <select id="subjectInput">
+                <option value="DSA">Data Structures & Algorithms</option>
+                <option value="OS">Operating Systems</option>
+                <option value="DBMS">Database Systems</option>
+                <option value="AI">Artificial Intelligence</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Period</label>
+              <input type="number" id="periodInput" value="2" min="1" max="8">
+            </div>
+          </div>
+
+          <div class="roster-section">
+            <h4>Student Roster (Payload Records)</h4>
+            <div class="roster-list" id="rosterList">
+              <div class="roster-item">
+                <span class="stu-id">STU-101</span>
+                <span class="stu-name">Rahul Sharma</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked data-stuid="STU-101" data-stuname="Rahul Sharma">
+                  <span class="toggle-slider"></span>
+                  <span class="status-lbl">PRESENT</span>
+                </label>
+              </div>
+              <div class="roster-item">
+                <span class="stu-id">STU-102</span>
+                <span class="stu-name">Priya Verma</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked data-stuid="STU-102" data-stuname="Priya Verma">
+                  <span class="toggle-slider"></span>
+                  <span class="status-lbl">PRESENT</span>
+                </label>
+              </div>
+              <div class="roster-item">
+                <span class="stu-id">STU-103</span>
+                <span class="stu-name">Aman Gupta</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" data-stuid="STU-103" data-stuname="Aman Gupta">
+                  <span class="toggle-slider"></span>
+                  <span class="status-lbl">ABSENT</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submitBtn" class="btn primary">
+              <span class="btn-text">Transmit to GitNode Network →</span>
+              <span class="btn-spinner hidden"></span>
+            </button>
+            <button type="button" id="corruptBtn" class="btn warning">
+              Simulate Schema Error ⚠️
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Right Column: Audit Console & Execution Log -->
+      <section class="card console-card">
+        <div class="card-head">
+          <h3>02 — Execution & Audit Log</h3>
+          <span class="tag-badge green" id="statusBadge">READY</span>
+        </div>
+
+        <!-- Pipeline Steps Visualization -->
+        <div class="pipeline-steps">
+          <div class="step-box" id="stepRbac">
+            <div class="step-num">1</div>
+            <div class="step-title">RBAC Check</div>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step-box" id="stepSchema">
+            <div class="step-num">2</div>
+            <div class="step-title">Schema Check</div>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step-box" id="stepDigest">
+            <div class="step-num">3</div>
+            <div class="step-title">SHA-256 Digest</div>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step-box" id="stepGitHub">
+            <div class="step-num">4</div>
+            <div class="step-title">GitHub Commit</div>
+          </div>
+        </div>
+
+        <!-- Terminal Output Screen -->
+        <div class="terminal-screen" id="terminalScreen">
+          <div class="term-line info">$ gitnode-gateway --init ready</div>
+          <div class="term-line info">$ Target storage repo: potatobun321/gec-ai-2a-private</div>
+          <div class="term-line info">$ Select user context and click "Transmit to GitNode Network".</div>
+        </div>
+
+        <!-- Receipt Box -->
+        <div class="receipt-card hidden" id="receiptCard">
+          <h4>Transmission Receipt</h4>
+          <div class="receipt-row"><span>Status:</span> <b class="receipt-status green" id="rcptStatus">VERIFIED_AND_COMMITTED</b></div>
+          <div class="receipt-row"><span>Receipt ID:</span> <code id="rcptId">-</code></div>
+          <div class="receipt-row"><span>User / Role:</span> <code id="rcptUser">-</code></div>
+          <div class="receipt-row"><span>SHA-256 Hash:</span> <code id="rcptHash" class="hash-text">-</code></div>
+          <div class="receipt-row" style="margin-top:10px;">
+            <a id="rcptGithubUrl" href="#" target="_blank" class="btn primary mini">
+              View Commit on GitHub.com ↗
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
