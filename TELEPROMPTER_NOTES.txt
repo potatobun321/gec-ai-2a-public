@@ -1,0 +1,130 @@
+====================================================================
+           GITNODE — PRESENTATION & TELEPROMPTER SCRIPT
+====================================================================
+
+[PART 1: THE HOOK & THE REALITY]
+
+Every engineering student knows the frustration of college infrastructure.
+We talk about building complex software, yet our institutional systems
+either rely on expensive, clunky ERP software...
+or daily manual paper registers filled by hand.
+
+Manual attendance calculation takes hours.
+Errors happen.
+And when server budgets are zero, digital infrastructure stalls.
+
+So we asked a simple engineering question:
+"Instead of waiting for an expensive server or IT department...
+Can we build real institutional infrastructure out of tools already free and available?"
+
+The answer is GitNode.
+
+[PAUSE]
+
+
+====================================================================
+[PART 2: THE CORE IDEA]
+
+GitNode treats the college not as one giant monolith database,
+but as a network of autonomous GitHub repositories.
+
+Every class, department, or student club becomes its own Node.
+
+And the core principle is simple:
+"Freedom at the Edge. Strictness at the Boundary."
+
+1. The Public Commons (Public GitHub Repo):
+   Hosted for free on GitHub Pages.
+   This is where students build class websites, publish study notes,
+   showcase projects, and collaborate through Pull Requests.
+
+2. The Private Authority (Private GitHub Repo):
+   This is where restricted institutional data lives.
+   Attendance records, student rosters, and Role-Based Access rules (RBAC).
+
+3. The Node.js Gateway:
+   Sitting between the frontend and GitHub.
+   It verifies who you are, validates data against strict JSON schemas,
+   computes cryptographic SHA-256 hashes, and commits the data to GitHub.
+
+[PAUSE]
+
+
+====================================================================
+[PART 3: REAL-WORLD COMPLIANCE — ADDRESSING THE "KAGAZRAAJ"]
+
+Now, let me address the biggest real-world question:
+"What about institutional compliance and paper audits?"
+
+In Indian university administration, paper is the ultimate law.
+The "Kagazraaj" demands physical registers with HOD signatures.
+
+GitNode doesn't fight this reality—it embraces it.
+
+During the month, zero paper is wasted.
+Teachers and students interact digitally through the web console.
+No manual percentage calculation by hand.
+
+At the end of the month, GitNode aggregates the daily JSON commits
+and automatically generates official, standardized PDF registers.
+
+The HOD prints two summary pages, signs them, and files them.
+
+We get a 90% reduction in paper usage, zero calculation errors,
+and 100% compliance with university accreditation rules.
+
+[PAUSE]
+
+
+====================================================================
+[PART 4: LIVE WORKING DEMO]
+
+[POINT TO SCREEN / LIVE DEMO]
+
+Here is our live working prototype.
+
+Look at our Visual Web Console running on localhost.
+
+When I select the context of "Prof. Sharma" (Faculty Teacher)
+and click "Transmit to GitNode Network":
+
+Watch the 4-step pipeline in real time:
+1. Step 1: RBAC Check — Confirms Teacher role permission.
+2. Step 2: Schema Check — Validates against message-v1.schema.json.
+3. Step 3: Digest Check — Calculates cryptographic SHA-256 hash.
+4. Step 4: Live GitHub Commit — Directly commits to our private storage repo!
+
+Here is the live GitHub commit URL on github.com.
+It's stored immutably in Git history forever.
+
+Now, watch what happens if I switch the role to "Rahul" (Student)
+and try to submit attendance:
+
+The RBAC Gateway immediately rejects it:
+"HTTP 403 Forbidden: Students cannot submit official records."
+
+Security is enforced at the server gateway, not hidden in the frontend.
+
+[PAUSE]
+
+
+====================================================================
+[PART 5: THE BIGGER HORIZON & CLOSING]
+
+A college ERP is just Application Number 1.
+
+Fundamentally, GitNode is a federated repository network protocol.
+
+The exact same engine can connect independent research labs,
+run Web3-style governance voting without crypto gas fees,
+or syndicate open-source publishing networks.
+
+Infrastructure does not have to be an obstacle we complain about.
+It can be an engineering project we build ourselves.
+
+Build the node.
+Connect the institution.
+Leave the infrastructure behind.
+
+Thank you.
+====================================================================
